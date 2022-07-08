@@ -1,0 +1,6 @@
+- name: Windows Inventory
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Ping Check
+      ansible.windows.win_ping:

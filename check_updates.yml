@@ -1,0 +1,9 @@
+- name: Check Windows Updates
+  hosts: all
+  tasks:
+    - name: Check for updates
+      ansible.windows.win_updates:
+        state: searched
+        log_path: c:\updates.txt
+      register: updatelist
+    - debug: var=updatelist
