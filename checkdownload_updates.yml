@@ -11,9 +11,3 @@
         state: downloaded
         log_path: c:\downloaded.txt
     - debug: var=updatelist
-    - name: Check update status
-      ansible.windows.win_updates:
-        state: searched
-        log_path: c:\updates_2.txt
-      register: downloadlist
-    - debug: var=downloadlist
