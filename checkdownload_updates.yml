@@ -4,10 +4,10 @@
     - name: Check for updates
       ansible.windows.win_updates:
         state: searched
-        log_path: c:\updates.txt
+        log_path: c:\windows\temp\updates.txt
       register: updatelist
     - name: Download updates
       ansible.windows.win_updates:
         state: downloaded
-        log_path: c:\downloaded.txt
+        log_path: c:\windows\temp\downloaded.txt
     - debug: var=updatelist

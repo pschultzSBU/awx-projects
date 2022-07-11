@@ -5,4 +5,4 @@
       ansible.windows.win_updates:
         category_names: '*'
         reboot: no
-        log_path: C:\installupdates.txt
+        log_path: C:\windows\temp\installupdates.txt
