@@ -1,0 +1,8 @@
+- name: Install Windows Updates And Reboot
+  hosts: all
+  tasks:
+    - name: Install Updates
+      ansible.windows.win_updates:
+        category_names: '*'
+        reboot: yes
+        log_path: C:\windows\temp\installupdates.txt
