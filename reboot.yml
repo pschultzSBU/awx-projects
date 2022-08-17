@@ -1,0 +1,7 @@
+- name: Reboot Windows System
+  hosts: all
+  tasks:
+    - name: Reboot
+      ansible.windows.reboot:
+        reboot_timeout: 1200
+        log_path: C:\windows\temp\reboot.txt
