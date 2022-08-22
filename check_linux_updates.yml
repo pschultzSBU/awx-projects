@@ -16,4 +16,4 @@
   - name: Ubuntu - List Available Updates
     ansible.builtin.command: apt list --upgradable
     register: apt_updates
-  - debug: msg="{{ apt_updates }}"
+  - debug: msg="{{ apt_updates.stdout_lines }}"
