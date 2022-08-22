@@ -16,6 +16,7 @@
   - name: Ubuntu - List Available Updates
     ansible.builtin.command: apt list --upgradable
     register: apt_updates
+    when: ansible_distribution == "Ubuntu"
   - debug: msg="{{ apt_updates.stdout_lines }}"
   - name: CentOS - Update Yum Cache
     ansible.builtin.yum:
@@ -24,4 +25,5 @@
   - name: CentOS - List Available Updates
     ansible.builtin.command: yum check-update
     register: yum_updates
+    when: ansible_distribution == "CentOS"
   - debug: msg="{{ yum_updates.stdout_lines }}"
