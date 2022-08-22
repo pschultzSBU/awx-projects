@@ -18,6 +18,7 @@
     register: apt_updates
     when: ansible_distribution == "Ubuntu"
   - debug: msg="{{ apt_updates.stdout_lines }}"
+    when: ansible_distribution == "Ubuntu"
   - name: CentOS - Update Yum Cache
     ansible.builtin.yum:
       update_cache: yes
@@ -26,4 +27,5 @@
     ansible.builtin.command: yum check-update
     register: yum_updates
     when: ansible_distribution == "CentOS"
-  - debug: msg="{{ yum_updates.stdout_lines }}"
+  - debug: msg="{{ yum_updates }}"
+    when: ansible_distribution == "CentOS"
