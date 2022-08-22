@@ -3,12 +3,6 @@
   gather_facts: yes
   become: yes
   tasks:
-  - name: Check Distribution
-    debug: msg="{{ item }}"
-    with_items: 
-    - "{{ ansible_distribution }}"
-    - "{{ ansible_distribution_version }}"
-    - "{{ ansible_distribution_major_version }}"
   - name: Ubuntu - Update Apt Cache
     ansible.builtin.apt:
       update_cache: yes
@@ -27,5 +21,5 @@
     ansible.builtin.command: yum check-update
     register: yum_updates
     when: ansible_distribution == "CentOS"
-  - debug: msg="{{ yum_updates }}"
+  - debug: msg="{{ yum_updates.stdout_lines }}"
     when: ansible_distribution == "CentOS"
