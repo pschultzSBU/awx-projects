@@ -17,3 +17,11 @@
     ansible.builtin.command: apt list --upgradable
     register: apt_updates
   - debug: msg="{{ apt_updates.stdout_lines }}"
+  - name: CentOS - Update Yum Cache
+    ansible.builtin.yum:
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+  - name: CentOS - List Available Updates
+    ansible.builtin.command: yum check-update
+    register: yum_updates
+  - debug: msg="{{ yum_updates.stdout_lines }}"
