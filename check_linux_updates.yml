@@ -13,4 +13,6 @@
     ansible.builtin.apt:
       update_cache: yes
       cache_valid_time: 3600
+    register: apt_updates
     when: ansible_distribution == "Ubuntu"
+  - debug: msg="{{ apt_updates }}"
